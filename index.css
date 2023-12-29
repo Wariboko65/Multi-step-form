@@ -1,0 +1,621 @@
+:root {
+    --Marine_blue: hsl(213, 96%, 18%);
+    --Purplish_blue: hsl(243, 100%, 62%);
+    --Pastel_blue: hsl(228, 100%, 84%);
+    --Light_blue: hsl(206, 94%, 87%);
+    --Strawberry_red: hsl(354, 84%, 57%);
+    --Cool_gray: hsl(231, 11%, 63%);
+    --Light_gray: hsl(229, 24%, 87%);
+    --Magnolia: hsl(217, 100%, 97%);
+    --Alabaster: hsl(231, 100%, 99%);
+    --White: hsl(0, 0%, 100%);
+    --weight: 400;
+    --sfont: 12px;
+    --bweight: 500;
+    --bbweight: 700;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--Light_gray);
+}
+
+main {
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    margin-block-end: 200px;
+    background: var(--Light_gray);
+    box-sizing: border-box;
+}
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+.image-section {
+    background: url("./assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 130px;
+    height: min(130px, 20%);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 40px;
+}
+
+.your-info div:first-child, 
+.select-plan div:first-child,
+.add-ons div:first-child,
+.summary div:first-child {
+    border: 2px solid var(--Light_gray);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--Light_gray);
+    cursor: pointer;
+    font-weight: var(--bbweight);
+}
+
+.your-info div.img-active:first-child,
+.select-plan div.img-active:first-child,
+.add-ons div.img-active:first-child,
+.summary div.img-active:first-child {
+    background: var(--Light_gray);
+    color: var(--Marine_blue);
+}
+
+.your-info div:first-child:hover, 
+.select-plan div:first-child:hover,
+.add-ons div:first-child:hover,
+.summary div:first-child:hover {
+    color: var(--Marine_blue);
+    background: var(--Light_blue);
+}
+
+
+.your-info div:nth-child(2), 
+.select-plan div:nth-child(2),
+.add-ons div:nth-child(2),
+.summary div:nth-child(2) {
+    display: none;
+}
+
+.personal-info, 
+.select-your-plan,
+.pick-add-ons,
+.finish-up,
+.thank-you {
+    background: var(--White);
+    margin: 5%;
+    margin-block-start: -90px;
+    padding: 5px 20px;
+    margin-block-end: 200px;
+    padding-block-end: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px 0 var(--Cool_gray);
+}
+
+.info-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 60px;
+    height: min(60px, 10%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--White);
+    box-shadow: 0 5px 20px 0 var(--Cool_gray);
+}
+
+.first-bttn {
+    justify-content: end;
+}
+
+.info-button button {
+    margin: 5%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: var(--bweight);
+}
+
+.info-button button:first-child {
+    background: transparent;
+    color: var(--Cool_gray);
+    transition: .5s color;
+}
+
+.info-button button:first-child:hover {
+    color: var(--Marine_blue);
+}
+
+.info-button button:nth-child(2),
+.first-bttn button:first-child {
+    color: var(--White);
+    background: var(--Marine_blue);
+    transition: .5s background-color;
+}
+
+.info-button button:nth-child(2):hover,
+.first-bttn button:first-child:hover {
+    background: var(--Purplish_blue);
+    color: var(--White);
+}
+
+header p:first-child,
+#page5 p:nth-child(2) {
+    font-size: 25px;
+    color: var(--Marine_blue);
+    font-weight: var(--bbweight);
+}
+
+header p:nth-child(2) {
+    margin-inline-end: 80px;
+    margin-block-start: -15px;
+}
+
+header p:nth-child(2),
+#page5 p:nth-child(3) {
+    color: var(--Cool_gray);
+}
+
+#page5 {
+    text-align: center;
+    padding: 80px 20px;
+}
+.name > div,
+.email > div, 
+.number > div {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 5px;
+    color: var(--Marine_blue);
+    font-size: var(--sfont);
+}
+
+.name > input,
+.email > input, 
+.number > input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid var(--Cool_gray);
+    outline: none;
+    transition: .5s border;
+}
+
+.name span,
+.email span,
+.number span {
+    color: red;
+}
+
+.name > input:focus,
+.email > input:focus, 
+.number > input:focus  {
+    border: 1px solid var(--Purplish_blue);
+}
+
+.name.active > input:focus,
+.email.active > input:focus,
+.number.active > input:focus,
+.name.active > input,
+.email.active > input,
+.number.active > input  {
+    border: 1px solid red;
+}
+
+.name, .email, .number {
+    margin-block-end: 20px;
+}
+
+.card1,
+.card2,
+.card3,
+[for="check3-1"],
+[for="check3-2"],
+[for="check3-3"] {
+    border: 1px solid var(--Cool_gray);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: var(--Marine_blue);
+    margin-block: 10px;
+    cursor: pointer;
+    transition: .5s border;
+    user-select: none;
+
+    display: flex;
+    gap: 15px;
+}
+
+.cad > div > input {
+    appearance: none;
+    position: absolute;
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover,
+[for="check3-1"]:hover,
+[for="check3-2"]:hover,
+[for="check3-3"]:hover  {
+    border: 1px solid var(--Purplish_blue);
+}
+
+.card1 div:nth-child(2),
+.card2 div:nth-child(2),
+.card3 div:nth-child(2),
+[for="check3-1"] > div > div,
+[for="check3-2"] > div > div,
+[for="check3-3"] > div > div  {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card1 div:nth-child(2) span:first-child,
+.card2 div:nth-child(2) span:first-child,
+.card3 div:nth-child(2) span:first-child,
+[for="check3-1"] > div > div span:nth-child(1),
+[for="check3-2"] > div > div span:nth-child(1),
+[for="check3-3"] > div > div span:nth-child(1) {
+    font-weight: var(--bbweight);
+}
+
+.card1 div:nth-child(2) span:nth-child(2),
+.card2 div:nth-child(2) span:nth-child(2),
+.card3 div:nth-child(2) span:nth-child(2),
+.card1 div:nth-child(2) span:nth-child(3),
+.card2 div:nth-child(2) span:nth-child(3),
+.card3 div:nth-child(2) span:nth-child(3),
+[for="check3-1"] > div > div span:nth-child(2),
+[for="check3-2"] > div > div span:nth-child(2),
+[for="check3-3"] > div > div span:nth-child(2) {
+    color: var(--Cool_gray);
+}
+
+.card1 div:nth-child(2) span:nth-child(4),
+.card2 div:nth-child(2) span:nth-child(4),
+.card3 div:nth-child(2) span:nth-child(4) {
+    font-size: 12px;
+}
+
+.monthly-or-yearly {
+    background: var(--Magnolia);
+    padding: 15px;
+    margin-block: 25px;
+    border-radius: 5px;
+}
+
+.monthly-or-yearly label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+[for="my"] span:nth-child(3) {
+    color: var(--Cool_gray);
+}
+
+[for="my"] span:nth-child(2) {
+    color: var(--Marine_blue);
+}
+
+[for="my"] input[type="checkbox"] {
+    appearance: none;
+    height: 18px;
+    width: 35px;
+    border-radius: 100px;
+    background: var(--Marine_blue);
+    cursor: pointer;
+    position: relative;
+}
+
+[for="my"] input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    right: 58%;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--White);
+    transition: .2s right;
+}
+
+[for="my"] input[type="checkbox"]:checked::before {
+    right: 10%;
+}
+
+[for="my"] input[type="checkbox"]:checked + span {
+    color: var(--Cool_gray);
+}
+
+[for="my"] input[type="checkbox"]:checked + span + span {
+    color: var(--Marine_blue);
+}
+
+.free,
+.van {
+    display: none !important;
+}
+
+.checked {
+    border: 1px solid var(--Purplish_blue);
+    background: var(--Magnolia);
+}
+
+[for="my"] span:nth-child(2) { order: 1; }
+[for="my"] input[type="checkbox"] { order: 2; }
+[for="my"] span:nth-child(3) { order: 3; }
+
+#page3 input[type="checkbox"] {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--Cool_gray);
+    border-radius: 4px;
+
+    position: relative;
+}
+
+#page3 input[type="checkbox"]::before {
+    content: "\2713";
+    position: absolute;
+    color: var(--White);
+    font-weight: var(--bbweight);
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -55%);
+}
+
+#page3 input[type="checkbox"]:checked {
+    background: var(--Purplish_blue);
+    border: 1px solid var(--Purplish_blue);
+}
+
+#page3 input[type="checkbox"]:checked::before {
+    display: block;
+}
+#page3 input[type="checkbox"]:hover {
+    border: 1px solid var(--Purplish_blue);
+}
+
+[for="check3-1"] > span,
+[for="check3-2"] > span,
+[for="check3-3"] > span {
+    color: var(--Purplish_blue);
+    font-size: var(--sfont);
+}
+
+[for="check3-1"] > div,
+[for="check3-2"] > div,
+[for="check3-3"] > div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
+[for="check3-1"],
+[for="check3-2"],
+[for="check3-3"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--Magnolia);
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.list {
+    color: var(--Marine_blue);
+}
+.head > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.head {
+    border-block-end: 1px solid var(--Cool_gray);
+    padding-block-end: 15px;
+}
+#item,
+#cost {
+    font-weight: var(--bbweight);
+}
+
+.check span:nth-child(2) {
+    font-size: var(--sfont);
+}
+
+.check span:first-child,
+.total span:first-child  {
+    color: var(--Cool_gray);
+}
+
+.total span:nth-child(2) {
+    color: var(--Purplish_blue);
+    font-weight: var(--bbweight);
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#item + span {
+    text-decoration: underline;
+    color: var(--Cool_gray);
+    cursor: pointer;
+    transition: .5s color;
+}
+
+#item + span:hover {
+    color: var(--Purplish_blue);
+}
+
+#confirm {
+    background: var(--Purplish_blue);
+    transition: .5s opacity;
+}
+
+#confirm:hover {
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background: var(--Light_gray);
+    }
+    
+    main {
+        min-height: min(80%, 500px);
+        height: min(80%, 500px);
+        margin-block-end: 0;
+        width: 60%;
+        display: flex;
+        gap: 30px;
+        background: var(--White);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .personal-info, 
+    .select-your-plan,
+    .pick-add-ons,
+    .finish-up,
+    .thank-you {
+        margin: auto;
+        height: 100%;
+        box-shadow: initial;
+        padding: initial;
+        box-sizing: border-box;
+        background: transparent;
+        /* background: green; */
+        border-radius: 0;
+        width: 60%;
+    }
+
+    .personal-info .container, 
+    .select-your-plan .container,
+    .pick-add-ons .container,
+    .finish-up .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* background: red; */
+    }
+    .image-section {
+        height: 100%;
+        width: 35%;
+        flex-direction: column;
+        box-sizing: border-box;
+        justify-content: start;
+        border-radius: 10px;
+        /* background-repeat: no-repeat; */
+        background-size: cover;
+        background: url("./assets/images/bg-sidebar-desktop.svg");
+    }
+
+    .your-info div:nth-child(2), 
+    .select-plan div:nth-child(2),
+    .add-ons div:nth-child(2),
+    .summary div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .your-info div:nth-child(2) span:nth-child(2), 
+    .select-plan div:nth-child(2) span:nth-child(2),
+    .add-ons div:nth-child(2) span:nth-child(2),
+    .summary div:nth-child(2) span:nth-child(2) {
+        text-transform: uppercase;
+        font-weight: var(--bbweight);
+        color: var(--White);
+        font-size: var(--sfont);
+    } 
+    
+    .your-info div:nth-child(2) span:nth-child(1), 
+    .select-plan div:nth-child(2) span:nth-child(1),
+    .add-ons div:nth-child(2) span:nth-child(1),
+    .summary div:nth-child(2) span:nth-child(1) {
+        font-size: var(--sfont);
+        color: var(--Cool_gray);
+        font-weight: var(--bbweight);
+        text-transform: uppercase;
+    }
+
+    .your-info, 
+    .select-plan,
+    .add-ons,
+    .summary {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .info-button {
+        position: relative;
+        box-shadow: initial;
+    }
+
+    .card-container {
+        display: flex;
+        gap: 15px;
+        justify-content: space-between;
+    }
+
+    .cad {
+        flex-direction: column;
+        width: 100%;
+        gap: 40px;
+    }
+
+    #page5 .container {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

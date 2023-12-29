@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Multi-step form</title>
+</head>
+<body>
+  <main>
+    <div class="image-section">
+      <div class="your-info">
+        <div class="page-num" id="num1"><span>1</span></div>
+        <div>
+          <span class="muted">step 1</span>
+          <span>your info</span>
+        </div>
+      </div>
+      <div class="select-plan">
+        <div class="page-num" id="num2"><span>2</span></div>
+        <div>
+          <span class="muted">step 2</span>
+          <span>select plan</span>
+        </div>
+      </div>
+      <div class="add-ons">
+        <div class="page-num" id="num3"><span>3</span></div>
+        <div>
+          <span class="muted">step 3</span>
+          <span>add-ons</span>
+        </div>
+      </div>
+      <div class="summary">
+        <div class="page-num" id="num4"><span>4</span></div>
+        <div>
+          <span class="muted">step 4</span>
+          <span>summary</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="personal-info" id="page1">
+      <div class="container">
+        <div class="form-field">
+          <header>
+            <p>Personal info</p>
+            <p>Please provide your name, email address, and phone number.</p>
+          </header>
+  
+          <div class="name errBorder" id="border1">
+            <div>
+              <label for="name1">Name</label>
+              <span id="error1"></span>
+            </div>
+            <input type="text" name="full-name" id="name1" placeholder="e.g. Stephen King" required>
+          </div>
+  
+          <div class="email errBorder" id="border2">
+            <div>
+              <label for="email2">Email Address</label>
+              <span id="error2"></span>
+            </div>
+            <input type="email" name="email-address" id="email2" placeholder="e.g. stephenking@lorem.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" required>
+          </div>
+  
+          <div class="number errBorder" id="border3">
+            <div>
+              <label for="number3">Phone Number</label>
+              <span id="error3"></span>
+            </div>
+            <input type="text" name="phone-number" id="number3" placeholder="e.g. +1 234 567 890" pattern="(\+[0-9]+)?[0-9]{1,4}\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{4}" required>
+          </div>
+  
+        </div>
+  
+        <div class="info-button first-bttn">
+          <button type="button">Next Step</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="select-your-plan" id="page2">
+      <div class="container">
+        <div class="body">
+          <header>
+            <p>Select your plan</p>
+            <p>You have the option of monthly or yearly billing.</p>
+          </header>
+  
+          <div class="card-container">
+            <label class="card1 cad" data-number="9" for="cad1">
+              <div class="arcade-icon">
+                <input type="checkbox" name="none" id="cad1" value="9">
+                <img src="./assets/images/icon-arcade.svg" alt="arcade-text">
+              </div>
+              <div class="arcade-text">
+                <span>Arcade</span>
+                <span class="month">$9/mo</span>
+                <span class="free">$90/yr</span>
+                <span class="free">2 months free</span>
+              </div>
+            </label>
+            
+            <label class="card2 cad" data-number="12" for="cad2">
+              <div class="advanced-icon">
+                <input type="checkbox" name="none" id="cad2" value="12">
+                <img src="./assets/images/icon-advanced.svg" alt="advanced-text">
+              </div>
+              <div class="advanced-text">
+                <span>Advanced</span>
+                <span class="month">$12/mo</span>
+                <span class="free">$120/yr</span>
+                <span class="free">2 months free</span>
+              </div>
+            </label>
+  
+            <label class="card3 cad" data-number="15" for="cad3">
+              <div class="pro-icon">
+                <input type="checkbox" name="none" id="cad3" value="15">
+                <img src="./assets/images/icon-pro.svg" alt="pro-text">
+              </div>
+              <div class="pro-text">
+                <span>Pro</span>
+                <span class="month">$15/mo</span>
+                <span class="free">$150/yr</span>
+                <span class="free">2 months free</span>
+              </div>
+            </label>
+          </div>
+  
+          <div class="monthly-or-yearly">
+            <label for="my">
+              <input type="checkbox" name="month-or-year" id="my">
+              <span class="cat">Monthly</span>
+              <span>Yearly</span>
+            </label>
+          </div>
+        </div>
+  
+        <div class="info-button">
+          <button type="button" class="prev">Go Back</button>
+          <button type="button" class="next">Next Step</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="pick-add-ons" id="page3">
+      <div class="container">
+        <div>
+          <header>
+            <p>Pick add-ons</p>
+            <p>Add-ons help enhance your gaming experience.</p>
+          </header>
+    
+          <label class="online-service" for="check3-1" id="check1">
+            <div>
+              <input type="checkbox" name="online service" id="check3-1" value="1">
+              <div>
+                <span id="real">Online service</span>
+                <span>Access to multiplayer games</span>
+              </div>
+            </div>
+            <span class="month">+$1/mo</span>
+            <span class="free">+$10/yr</span>
+          </label>
+          
+          <label class="large-storage" for="check3-2" id="check2">
+            <div>
+              <input type="checkbox" name="large-storage" id="check3-2" value="2">
+              <div>
+                <span>Larger storage</span>
+                <span>Extra 1TB of cloud save</span>
+              </div>
+            </div>
+            <span class="month">+$2/mo</span>
+            <span class="free">+$20/yr</span>
+          </label>
+          
+          <label class="customizable-profile" for="check3-3" id="check3">
+            <div>
+              <input type="checkbox" name="customizable-profile" id="check3-3" value="2">
+              <div>
+                <span>Customizable Profile</span>
+                <span>Custom theme on your profile</span>
+              </div>
+            </div>
+            <span class="month">+$2/mo</span>
+            <span class="free">+$20/yr</span>
+          </label>
+        </div>
+  
+        <div class="info-button">
+          <button type="button" class="prev">Go Back</button>
+          <button type="button" class="next">Next Step</button>
+        </div>
+      </div>
+    </section>
+    
+    <section class="finish-up" id="page4">
+      <div class="container">
+        <div>
+          <header>
+            <p>Finishing Up</p>
+            <p>Double-check everythng looks OK before confirming.</p>
+          </header>
+          
+          <div class="list">
+            <div class="sub">
+              <div class="head">
+                <div>
+                  <span id="item">Arcade (Monthly)</span>
+                  <span id="change">Change</span>
+                </div>
+                <div>
+                  <span id="cost">$9/mo</span>  
+                </div>
+              </div>
+              
+              <div class="check van">
+                <span>Online service</span>
+                <span class="subCheck">+$1/mo</span>
+              </div>
+              
+              <div class="check van">
+                <span>Large storage</span>
+                <span class="subCheck">+$2/mo</span>
+              </div class="check">
+              
+              <div class="check van">
+                <span>Customizable profile</span>
+                <span class="subCheck">+$2/mo</span>
+              </div>
+            </div>
+            
+            <div class="total">
+              <span id="tap">Total (per year)</span>
+              <span id="total-value">9</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="info-button">
+          <button type="button" class="prev">Go Back</button>
+          <button type="button" class="next" id="confirm">Confirm</button>
+        </div>
+      </div>
+    </section>
+    
+    <section class="thank-you" id="page5">
+      <div class="container">
+        <img src="./assets/images/icon-thank-you.svg" alt="check">
+        <p>Thank you!</p>
+        <p>
+          Thanks for confirming your subscription! We hope you have fun 
+          using our platform. If you ever need support, please feel free 
+          to email us at support@loremgaming.com.
+        </p>
+      </div>
+    </section>
+    
+    <!-- <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </main>
+  <script src="./index.js"></script>
+</body>
+</html>
