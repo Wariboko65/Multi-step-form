@@ -514,7 +514,6 @@ header p:nth-child(2),
         display: flex;
         background: var(--White);
         padding: 10px;
-        overflow: scroll;
         border-radius: 10px;
     }
 
@@ -527,6 +526,7 @@ header p:nth-child(2),
         height: 100%;
         box-shadow: initial;
         padding: initial;
+        overflow: scroll;
         box-sizing: border-box;
         background: transparent;
         border-radius: 0;
