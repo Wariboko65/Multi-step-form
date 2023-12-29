@@ -113,6 +113,8 @@ let page3Input = page3.getElementsByTagName("input");
 let page3Label = page3.getElementsByTagName("label");
 let storedItem = sessionStorage.getItem("selectedItem") || 1;
 
+let total = document.getElementById("total-value");
+let totalValue = 0;
 function monthYear() {
     freePlan.forEach((item) => {
         if (planCheck.checked) {
@@ -133,7 +135,6 @@ function monthYear() {
 
 planCheck.addEventListener("change", () => {
     monthYear();
-    location.reload();
 });
 
 planCheckbox[0].addEventListener("change", () => {
@@ -146,7 +147,6 @@ planCheckbox[0].addEventListener("change", () => {
     } else {
         planCards[0].classList.remove("checked");
     }
-    location.reload();
 });
 
 planCheckbox[1].addEventListener("change", () => {
@@ -159,7 +159,6 @@ planCheckbox[1].addEventListener("change", () => {
     } else {
         planCards[1].classList.remove("checked");
     }
-    location.reload();
 });
 
 planCheckbox[2].addEventListener("change", () => {
@@ -172,7 +171,6 @@ planCheckbox[2].addEventListener("change", () => {
     } else {
         planCards[2].classList.remove("checked");
     }
-    location.reload();
 });
 
 window.addEventListener("load", () => {
@@ -249,60 +247,60 @@ let visible = document.getElementsByClassName("check");
 let tap = document.getElementById("tap");
 
 function checkout() {
-    if (planCheckbox[0].checked && planCheck.checked) {
-        plan.innerText = "Arcade (Yearly)";
-        planCost.innerText = "$90/yr";
-    } else if (planCheckbox[0].checked && !planCheck.checked) {
-        plan.innerText = "Arcade (Monthly)";
-        planCost.innerText = "$9/mo";
+    if (planCheckbox[0].checked) {
+        plan.innerText = planCheck.checked ? "Arcade (Yearly)" : "Arcade (monthly)";
+        planCost.innerText = planCheck.checked ? "$90/yr" : "$9/mo";
+        planCheckbox[0].value = planCheck.checked ? 90 : 9;
     }
     
-    if (planCheckbox[1].checked && planCheck.checked) {
-        plan.innerText = "Advanced (Yearly)";
-        planCost.innerText = "$120/yr";
-    } else if (planCheckbox[1].checked && !planCheck.checked) {
-        plan.innerText = "Advanced (Monthly)";
-        planCost.innerText = "$12/mo";
+    if (planCheckbox[1].checked) {
+        plan.innerText = planCheck.checked ? "Advanced (Yearly)" : "Advanced (monthly)";
+        planCost.innerText = planCheck.checked ? "$120/yr" : "$12/mo";
+        planCheckbox[1].value = planCheck.checked ? 120 : 12;
     }
     
-    if (planCheckbox[2].checked && planCheck.checked) {
-        plan.innerText = "Pro (Yearly)";
-        planCost.innerText = "$150/yr";
-    } else if (planCheckbox[2].checked && !planCheck.checked) {
-        plan.innerText = "Pro (Monthly)";
-        planCost.innerText = "$15/mo";
+    if (planCheckbox[2].checked) {
+        plan.innerText = planCheck.checked ? "Pro (Yearly)" : "Pro (monthly)";
+        planCost.innerText = planCheck.checked ? "$150/yr" : "$15/mo";
+        planCheckbox[2].value = planCheck.checked ? 150 : 15;
     }
+
+    if (page3Input[0].checked) {
+        page3Input[0].value = planCheck.checked ? 10 : 1;
+    }
+
+    if (page3Input[1].checked) {
+        page3Input[1].value = planCheck.checked ? 20 : 2;
+    }
+
+    if (page3Input[2].checked) {
+        page3Input[2].value = planCheck.checked ? 20 : 2;
+    }
+
     if (planCheck.checked) {
         subCheck[0].innerText = "+$10/yr";
         subCheck[1].innerText = "+$20/yr";
         subCheck[2].innerText = "+$20/yr";
         tap.innerText = "Total (per year)";
-        planCheckbox[0].value = 90;
-        planCheckbox[1].value = 120;
-        planCheckbox[2].value = 150;
-        page3Input[0].value = 10;
-        page3Input[1].value = 20;
-        page3Input[2].value = 20;
     } else {
         subCheck[0].innerText = "+$1/mo";
         subCheck[1].innerText = "+$2/mo";
         subCheck[2].innerText = "+$2/mo";
         tap.innerText = "Total (per month)";
     }
+
+    totalCheckout();
 }
 
 changeCheck.addEventListener("click", () => {
-    if (planCheck.checked) {
-        planCheck.checked = false;
-    } else {
-        planCheck.checked = true;
-    }
-    location.reload();
+    planCheck.checked = !planCheck.checked;
+
+    const event = new Event("change");
+    planCheck.dispatchEvent(event);
 });
 
 planCheck.addEventListener("change", () => {
     checkout();
-    location.reload();
 });
 
 checkout();
@@ -325,6 +323,9 @@ window.addEventListener("load", () => {
     } else {
         visible[2].classList.add("van");
     }
+
+    // totalValue = 9;
+    // total.innerText = `$${totalValue}/mo`;
 });
 
 page3Input[0].addEventListener("change", () => {
@@ -334,7 +335,6 @@ page3Input[0].addEventListener("change", () => {
         visible[0].classList.add("van");
     }
     totalCheckout();
-    location.reload();
 });
 
 page3Input[1].addEventListener("change", () => {
@@ -344,7 +344,6 @@ page3Input[1].addEventListener("change", () => {
         visible[1].classList.add("van");
     }
     totalCheckout();
-    location.reload();
 });
 
 page3Input[2].addEventListener("change", () => {
@@ -354,7 +353,6 @@ page3Input[2].addEventListener("change", () => {
         visible[2].classList.add("van");
     }
     totalCheckout();
-    location.reload();
 });
 
 
@@ -366,21 +364,20 @@ for (let i = 0; i < planCheckbox.length; i++) {
 
 
 
-let total = document.getElementById("total-value");
-let totalValue = 0;
 
 
 function totalCheckout() {
+    totalValue = 0;
     if (planCheckbox[0].checked) {
         totalValue += parseInt(planCheckbox[0].value);
     }
     
     if (planCheckbox[1].checked) {
-        totalValue = parseInt(planCheckbox[1].value);
+        totalValue += parseInt(planCheckbox[1].value);
     }
     
     if (planCheckbox[2].checked) {
-        totalValue = parseInt(planCheckbox[2].value);
+        totalValue += parseInt(planCheckbox[2].value);
     }
     
     if (page3Input[0].checked) {
