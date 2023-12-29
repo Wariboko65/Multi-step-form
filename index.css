@@ -514,6 +514,7 @@ header p:nth-child(2),
         display: flex;
         background: var(--White);
         padding: 10px;
+        overflow: scroll;
         border-radius: 10px;
     }
 
@@ -528,7 +529,6 @@ header p:nth-child(2),
         padding: initial;
         box-sizing: border-box;
         background: transparent;
-        /* background: green; */
         border-radius: 0;
         width: 60%;
     }
