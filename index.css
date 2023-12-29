@@ -100,11 +100,28 @@ section.active {
     margin-block-start: -90px;
     padding: 5px 20px;
     margin-block-end: 200px;
+    overflow-y: scroll;
     padding-block-end: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 20px 0 var(--Cool_gray);
 }
 
+.personal-info::-webkit-scrollbar, 
+.select-your-plan::-webkit-scrollbar,
+.pick-add-ons::-webkit-scrollbar,
+.finish-up::-webkit-scrollbar,
+.thank-you::-webkit-scrollbar {
+    display: none;
+}
+
+.personal-info, 
+.select-your-plan,
+.pick-add-ons,
+.finish-up,
+.thank-you {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 .info-button {
     position: fixed;
     bottom: 0;
@@ -495,15 +512,6 @@ header p:nth-child(2),
     opacity: 0.5;
 }
 
-@media (orientation: landscape) {
-    .personal-info, 
-    .select-your-plan,
-    .pick-add-ons,
-    .finish-up,
-    .thank-you {
-        overflow-y: scroll;
-    }
-}
 @media screen and (min-width: 1024px) {
     body {
         height: 100vh;
